@@ -1,0 +1,35 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: config
+  cloud:
+#    inetutils:
+#      timeout-seconds: 10
+    config:
+      server:
+        git:
+          uri: https://github.com/DwyaneGXD/Cloud_Brixton.git
+          search-paths:
+            - config-repo
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        hostname: consul
+        prefer-agent-address: true
+        prefer-ip-address: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

@@ -1,0 +1,80 @@
+//声明gradle脚本自身需要的资源
+buildscript {
+  ext {
+    springBootVersion = '2.2.4.RELEASE'
+    springCloudVersion = 'Hoxton.SR5'
+  }
+  repositories {
+    mavenCentral()
+    mavenLocal()
+    jcenter()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+  }
+  dependencies {//用来打包
+    classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+  }
+}
+
+//gradle版本
+task createWrapper(type: Wrapper) {
+  gradleVersion = '6.3'
+}
+
+allprojects {
+  group 'com.dwyane.brixton'
+  version '1.0'
+  //指定编码格式
+  tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+  }
+}
+
+subprojects {
+  apply plugin: 'java'
+  apply plugin: 'idea'
+  apply plugin: 'org.springframework.boot'
+  //A Gradle plugin that provides Maven-like dependency management functionality
+  apply plugin: 'io.spring.dependency-management'
+
+
+  //全局去除依赖
+  configurations {
+    compile.exclude module: 'spring-boot-starter-tomcat'
+  }
+
+  ext {
+    bootName = 'org.springframework.boot'
+    cloudName = 'org.springframework.cloud'
+  }
+
+  sourceCompatibility = JavaVersion.VERSION_1_8
+  targetCompatibility = JavaVersion.VERSION_1_8
+
+  repositories {
+    mavenLocal()
+    jcenter()
+    mavenCentral()
+    maven { url 'https://repo.spring.io/snapshot' }
+    maven { url 'https://repo.spring.io/milestone' }
+  }
+
+  dependencies {
+    //应用信息
+    compile "${bootName}:spring-boot-starter-actuator"
+    compile "org.projectlombok:lombok"
+
+    tasks.withType(JavaCompile) {
+      options.encoding = "UTF-8"
+    }
+  }
+
+  dependencyManagement {
+    imports {
+      //spring bom helps us to declare dependencies without specifying version numbers.
+      mavenBom "${cloudName}:spring-cloud-dependencies:${springCloudVersion}"
+    }
+  }
+}
+
+

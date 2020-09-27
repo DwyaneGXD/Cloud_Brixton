@@ -1,0 +1,10 @@
+dependencies {
+  implementation "${cloudName}:spring-cloud-config-client",
+                 "${cloudName}:spring-cloud-starter-bus-amqp",
+                 //做安全和端口开放
+                 "${bootName}:spring-boot-starter-security",
+                 //容器 Undertow
+                 "${bootName}:spring-boot-starter-undertow",
+                 //服务注册
+                 "${cloudName}:spring-cloud-starter-consul-discovery"
+}

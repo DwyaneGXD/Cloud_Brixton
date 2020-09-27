@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: client
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        prefer-agent-address: true
+        prefer-ip-address: true
+    config:
+      label: master
+      uri:
+        - http://localhost:9090
+      name: config
+      profile: dev
