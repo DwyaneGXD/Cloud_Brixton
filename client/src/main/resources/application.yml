@@ -2,9 +2,6 @@ server:
   port: 9095
 
 spring:
-  application:
-    name: client
-
   ## 配置rabbitMQ 信息
   rabbitmq:
     host: localhost

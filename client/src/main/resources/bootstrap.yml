@@ -6,6 +6,7 @@ spring:
       host: localhost
       port: 8500
       discovery:
+        hostname: consul
         prefer-agent-address: true
         prefer-ip-address: true
     config:

@@ -1,11 +1,7 @@
 server:
   port: 9090
 spring:
-  application:
-    name: config
   cloud:
-#    inetutils:
-#      timeout-seconds: 10
     config:
       server:
         git:
@@ -28,8 +24,3 @@ spring:
     port: 5672
     username: guest
     password: guest
-management:
-  endpoints:
-    web:
-      exposure:
-        include: bus-refresh

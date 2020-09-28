@@ -1,0 +1,14 @@
+dependencies
+  {
+    compile "${bootName}:spring-boot-starter-web",
+      //服务注册
+      "${cloudName}:spring-cloud-starter-consul-discovery",
+      //容器 Undertow
+      "${bootName}:spring-boot-starter-undertow",
+      //配置管理
+      "${cloudName}:spring-cloud-config-client",
+      //Axon集成Spring-Cloud 数据库MongoDB 消息中间价RabbitMQ Start
+      "${bootName}:spring-boot-starter-amqp"
+    compileOnly "${bootName}:spring-boot-starter-data-redis",
+      "${cloudName}:spring-cloud-starter-openfeign"
+  }

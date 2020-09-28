@@ -1,4 +1,5 @@
 rootProject.name = 'Cloud_Brixton'
 include 'config'
 include 'client'
+include 'core'
 

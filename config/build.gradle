@@ -1,11 +1,8 @@
 dependencies {
+  implementation project(":core")
   implementation "${bootName}:spring-boot-starter",
                  "${cloudName}:spring-cloud-config-server",
                  "${cloudName}:spring-cloud-starter-bus-amqp",
                  //做安全和端口开放
-                 "${bootName}:spring-boot-starter-security",
-                 //容器 Undertow
-                 "${bootName}:spring-boot-starter-undertow",
-                 //服务注册
-                 "${cloudName}:spring-cloud-starter-consul-discovery"
+                 "${bootName}:spring-boot-starter-security"
 }
