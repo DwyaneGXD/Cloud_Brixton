@@ -8,6 +8,7 @@ spring:
           uri: https://github.com/DwyaneGXD/Cloud_Brixton.git
           search-paths:
             - config-repo
+      label: master
     bus:
       enabled: true
       trace:
