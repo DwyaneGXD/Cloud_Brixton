@@ -11,7 +11,12 @@ spring:
         prefer-ip-address: true
     config:
       label: master
-      uri:
-        - http://localhost:9090
-      name: config
+      discovery:
+        enabled: true
+        service-id: config
       profile: pro
+      fail-fast: true
+#      uri:
+#        - http://localhost:9090
+#      name: config
+#      profile: pro
