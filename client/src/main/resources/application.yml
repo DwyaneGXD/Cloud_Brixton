@@ -1,6 +1,3 @@
-server:
-  port: 9095
-
 spring:
   ## 配置rabbitMQ 信息
   rabbitmq:

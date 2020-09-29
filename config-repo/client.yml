@@ -1,0 +1,55 @@
+cn:
+  springcloud:
+    book:
+      config: I am Dwyane
+
+server:
+  port: 9095
+
+---
+
+spring:
+  profiles: default,dev
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    username: fleet
+    password: 123456
+    url: jdbc:mysql://192.168.5.73:3306/fleet_staging?useUnicode=true&characterEncoding=utf8&useLegacyDatetimeCode=false&serverTimezone=UTC&logger=com.mysql.jdbc.log.Slf4JLogger&profileSQL=true
+    hikari:
+      connection-test-query: SELECT 1
+      maximum-pool-size: 20
+      max-lifetime: 600000
+      idle-timeout: 570000
+
+---
+
+spring:
+  profiles: tra
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    username: fleet
+    password: 123456
+    url: jdbc:mysql://192.168.5.73:3306/fleet_staging?useUnicode=true&characterEncoding=utf8&useLegacyDatetimeCode=false&serverTimezone=UTC&logger=com.mysql.jdbc.log.Slf4JLogger&profileSQL=true
+    hikari:
+      connection-test-query: SELECT 1
+      maximum-pool-size: 20
+      max-lifetime: 600000
+      idle-timeout: 570000
+
+---
+
+spring:
+  profiles: pro
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    username: fleet
+    password: 123456
+    url: jdbc:mysql://192.168.5.73:3306/fleet_staging?useUnicode=true&characterEncoding=utf8&useLegacyDatetimeCode=false&serverTimezone=UTC&logger=com.mysql.jdbc.log.Slf4JLogger&profileSQL=true
+    hikari:
+      connection-test-query: SELECT 1
+      maximum-pool-size: 20
+      max-lifetime: 600000
+      idle-timeout: 570000

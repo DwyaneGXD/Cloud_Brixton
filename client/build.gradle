@@ -4,5 +4,7 @@ dependencies {
                  "${cloudName}:spring-cloud-config-client",
                  "${cloudName}:spring-cloud-starter-bus-amqp",
                  //做安全和端口开放
-                 "${bootName}:spring-boot-starter-security"
+                 "${bootName}:spring-boot-starter-security",
+                 "com.zaxxer:HikariCP"
+  runtimeOnly "mysql:mysql-connector-java"
 }

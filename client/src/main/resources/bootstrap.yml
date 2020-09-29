@@ -2,21 +2,46 @@ spring:
   application:
     name: client
   cloud:
+    config:
+      label: master
+      discovery:
+        enabled: true
+        service-id: config
+      profile: pro
+      fail-fast: true
+
+---
+
+spring:
+  profiles: default,dev
+  cloud:
     consul:
       host: localhost
       port: 8500
       discovery:
-        hostname: consul
         prefer-agent-address: true
         prefer-ip-address: true
-    config:
-      label: master
-#      discovery:
-#        enabled: true
-#        service-id: config
-#      profile: pro
-#      fail-fast: true
-      uri:
-        - http://localhost:9090
-      name: config
-      profile: pro
+
+---
+
+spring:
+  profiles: tra
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        prefer-agent-address: true
+        prefer-ip-address: true
+
+---
+
+spring:
+  profiles: pro
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        prefer-agent-address: true
+        prefer-ip-address: true
